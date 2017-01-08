@@ -1,6 +1,6 @@
 # nodejs
-# express
-# mongodb
-# mongoose
-# angularjs
-# nodemon
+express
+mongodb
+mongoose
+angularjs
+nodemon
