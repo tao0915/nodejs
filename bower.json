@@ -1,0 +1,24 @@
+{
+  "name": "ws_nodejs",
+  "description": "nodejsTest",
+  "main": "app.js",
+  "authors": [
+    "jun"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "login"
+  ],
+  "homepage": "https://github.com/tao0915/nodejs",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "flat-ui": "^2.3.0",
+    "bootstrap": "^3.3.7"
+  }
+}
