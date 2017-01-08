@@ -1,0 +1,38 @@
+{
+  "name": "ws_nodejs",
+  "version": "1.0.0",
+  "description": "nodejsTest",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "author": "jun",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.1.4",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.6.0",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "method-override": "^2.3.7",
+    "mongoose": "^4.7.2",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "login"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tao0915/nodejs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tao0915/nodejs/issues"
+  },
+  "homepage": "https://github.com/tao0915/nodejs#readme"
+}
