@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../common/head %>
+  </head>
+  <body>
+    <header>
+      <% include ../common/header %>
+    </header>
+    <div class="container">
+<!-- main start-->
+
+<!-- views/users/show.ejs -->
+  여기는 메인 페이지 입니다.
+  <table class="table table-striped">
+      <thead>
+          <th>index</th>
+          <th>email</th>
+          <th>nickname</th>
+          <th>password</th>
+          <th>createdAt</th>
+      </thead>
+      <tbody>
+          <% for(var i = 0, len = users.length; i < len; i++) { %>
+              <% var user = users[i] %>
+               <tr>
+                  <td><%= i %></td>
+                  <td><%= user.email %></td>
+                  <td><%= user.nickname %></td>
+                  <td><%= user.password %></td>
+                  <td><%= user.createdAt %></td>
+               </tr>
+          <% } %>
+      </tbody>
+  </table>
+<!-- main end -->
+    </div><!--users end -->
+    <footer>
+      <% include ../common/footer %>
+    </footer>
+  </body>
+</html>

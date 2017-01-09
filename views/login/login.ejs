@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../common/head %>
+  </head>
+  <body>
+    <header>
+      <% include ../common/header %>
+    </header>
+    <div class="container">
+    <!-- main start-->
+    <div class="col-sm-5">
+    <!-- views/login/login.ejs -->
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">로그인</h3>
+          <div class="message"><%= loginMessage %></div>
+        </div>
+        <div class="panel-body">
+          <form class="checkValidation form-signin" action="/login" method="post">
+            <div class="inputs">
+              <div class="floats">
+                <label for="inputEmail" class="sr-only">Email address</label>
+                <input class="cvRequired form-control" type="text" id="inputEmail" name="email" cvRqErrMsg="Please enter your login email." placeholder="Email address" cvRqErrTo="#cvRqErrEmail" value="">
+                <div id="cvRqErrEmail" class="message"></div>
+              </div>
+              <div class="floats">
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input class="cvRequired form-control" type="password" id="inputPassword" name="password" cvRqErrMsg="Please enter your password." placeholder="Password" cvRqErrTo="#cvRqErrPassword" value="">
+                <div id="cvRqErrPassword" class="message"></div>
+              </div>
+              <% loginError.forEach(function(e){ %>
+                  <div class="message"><%= e %><div>
+              <% }) %>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="remember-me"> Remember me
+              </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+            <button type="button" class="btn btn-success btn-block"  data-toggle="modal" data-target="#registModal">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-7">
+    <!-- views/login/login.ejs -->
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h3 class="panel-title">DB 접속 정보</h3>
+        </div>
+        <div class="panel-body">
+          - 윈도우 : 시스템 변수 > MONGODB 로 추가 >  process.env.MONGODB 로 정보 가져옴<br/>
+          - 리눅스 ; #export MONGODB=mongodb://test:testtest@ds133358.mlab.com:33358/20161212study
+
+        </div>
+      </div>
+    </div>
+    <!-- main end -->
+    </div><!--container end -->
+    <!-- Modal -->
+    <div class="modal fade" id="registModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">회원가입</h4>
+          </div>
+
+          <form class="checkValidation" action="/users" method="post">
+          <div class="modal-body">
+                <div class="floats">
+                  <label for="regEmail" class="sr-only">Email*</label>
+                  <input class="cvRequired form-control" type="text" id="regEmail" name="user[email]" cvRqErrMsg="Email is required." cvRqErrTo="#cvErrEmail" placeholder="Email address" value="<%= formData?formData.email:"" %>">
+                  <div id="cvErrEmail" class="message"><%= emailError?emailError:"" %></div>
+                </div>
+                <div class="floats">
+                  <label class="sr-only">Nickname*</label>
+                  <input class="cvRequired form-control" type="text" name="user[nickname]" cvRqErrMsg="Nickname is required." cvRqErrTo="#cvErrNickname" placeholder="Nick Name" value="<%= formData?formData.nickname:"" %>">
+                  <div id="cvErrNickname" class="message"><%= nicknameError?nicknameError:"" %></div>
+                </div>
+                <div class="floats">
+                  <label class="sr-only">Password*</label>
+                  <input class="cvRequired cvMatch form-control" type="password" name="user[password]" cvRqErrMsg="Password is required." cvRqErrTo="#cvErrPassword"
+                    cvMatW="#cvMatWPassword" cvMatErrMsg="Password confirmation doesn't match." cvMatErrTo="#cvErrPasswordConfirmation" placeholder="Password" value="">
+                  <div id="cvErrPassword" class="message"><%= passwordError?passwordError:"" %></div>
+                </div>
+                <div class="floats">
+                  <label class="sr-only">Password Confirmation*</label>
+                  <input class="form-control" id="cvMatWPassword" type="password" name="user[passwordConfirmation]" placeholder="Password Confirm" value="">
+                  <div id="cvErrPasswordConfirmation" class="message"></div>
+                </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+            <button type="submit" class="btn btn-primary">완료</button>
+          </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <% include ../common/footer %>
+    </footer>
+  </body>
+</html>
